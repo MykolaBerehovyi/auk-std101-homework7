@@ -133,18 +133,9 @@ public class LinkedList<T> implements Iterable<T> {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
 
-        Node<T> x;
-        // Optimize traversal by choosing direction
-        if (index < size / 2) {
-            x = first;
-            for (int i = 0; i < index; i++) {
-                x = x.next;
-            }
-        } else {
-            x = last;
-            for (int i = size - 1; i > index; i--) {
-                x = x.prev;
-            }
+        Node<T> x = first;
+        for (int i = 0; i < index; i++) {
+            x = x.next;
         }
         return x;
     }
